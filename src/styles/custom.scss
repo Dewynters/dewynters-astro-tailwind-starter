@@ -1,0 +1,31 @@
+.nav-active {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.background-gradient {
+  background: linear-gradient(180deg, #05144a 51.56%, rgba(5, 20, 74, 0) 100%);
+}
+.noSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.noSelect:focus {
+  outline: none !important;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(250px);
+}
+.fade-down {
+  opacity: 0;
+  transform: translateY(-250px);
+}
+.fade {
+  opacity: 0;
+}

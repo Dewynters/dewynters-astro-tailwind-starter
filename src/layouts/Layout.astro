@@ -1,0 +1,28 @@
+---
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// load our styles after packages
+import "../styles/tailwind.scss";
+import "../styles/custom.scss";
+
+import {  Social } from "@components/Global";
+---
+<!-- if you want automatic padding on body -->
+<!-- <script>
+  const header = document.getElementById("header");
+  let headerHeight = header.clientHeight;
+  document.body.style.paddingTop = `${headerHeight}px`;
+  window.addEventListener("resize", () => {
+    headerHeight = header.clientHeight;
+    document.body.style.paddingTop = `${headerHeight}px`;
+  });
+</script> -->
+
+<main>
+  <!-- <Social /> -->
+  <slot />
+  <!-- <Footer /> -->
+</main>

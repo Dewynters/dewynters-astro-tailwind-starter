@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    overflow-x: hidden;
+    font-weight: 400;
+    scroll-behavior: smooth;
+    @apply font-body;
+  }
+  body {
+    @apply w-full;
+    @apply h-full;
+    @apply bg-primary;
+    @apply text-offWhite;
+    overflow-x: hidden;
+  }
+  h1,
+  .h1 {
+    @apply font-title;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: bold;
+    @screen md {
+      font-size: 34px;
+      line-height: 48px;
+    }
+    @screen xl {
+      font-size: 54px;
+      line-height: 64px;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+
+    @screen md {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @screen xl {
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+
+    @screen md {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  h4 {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+
+    @screen md {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 1rem;
+    @screen md {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    @screen xl {
+      font-size: 24px;
+      line-height: 38px;
+    }
+  }
+  p:last-child {
+    padding: 0;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}

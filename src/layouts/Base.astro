@@ -1,0 +1,86 @@
+---
+import { SITE } from "@utils/config";
+import { AddSchema } from '@components/Shared/AddSchema'
+
+export interface Props {
+  path?: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  schemaMarkup?: object;
+}
+
+const { path, pageTitle, pageDescription, schemaMarkup } = Astro.props;
+
+const title = pageTitle || SITE.title;
+const description = pageDescription || SITE.description;
+
+const canonical = path
+  ? `${import.meta.env.PUBLIC_FRONTEND_URL}${path}/`
+  : `${import.meta.env.PUBLIC_FRONTEND_URL}/`;
+
+const facebookShareImage = `${
+  import.meta.env.PUBLIC_FRONTEND_URL
+}Share_1200X600.png`;
+const twitterShareImage = `${
+  import.meta.env.PUBLIC_FRONTEND_URL
+}Share_1080X1080.png`;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="stylesheet"
+      href=`https://use.typekit.net/${import.meta.env.PUBLIC_ADOBE_KEY}.css`
+    />
+    <title>{title}</title>
+    <meta content={description} name="description" />
+    <link rel="canonical" href={canonical} />
+
+    {/* Facebook */}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={facebookShareImage} />
+
+    {/* Twitter */}
+    <meta name="twitter:image" content={twitterShareImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="Dewynters" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <meta content="index, follow" name="robots" />
+
+    {schemaMarkup && (
+      <AddSchema client:load data={JSON.stringify(schemaMarkup)} />
+    )}    
+		
+			<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-WJS734G');</script> -->
+		
+  </head>
+  <body>
+			<!-- <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=GTM-WJS734G`}
+			height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript> -->
+		
+    <slot />
+  </body>
+</html>

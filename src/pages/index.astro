@@ -1,0 +1,37 @@
+---
+import Base from "@layouts/Base.astro";
+import Layout from "@layouts/Layout.astro";
+
+
+import { SITE } from "@utils/config";
+
+// const meta = {
+//   title: "This is a test",
+//   description: "This is a test",
+//   // path: '/'
+// };
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Corporation",
+  name: `${SITE.title}`,
+  description: `${SITE.description}`,
+  url: `${import.meta.env.PUBLIC_FRONTEND_URL}`,
+  logo: `${import.meta.env.PUBLIC_FRONTEND_URL}/Share_1080X1080.png`,
+  "sameAs": [
+    "https://www.facebook.com/ChittyOnTour/",
+    "https://twitter.com/chittyontour",
+    "https://www.instagram.com/chittyontour/"
+  ]
+};
+---
+
+<!-- <Base pageTitle={meta.title} pageDescription={meta.description}> -->
+<Base schemaMarkup={schema}>
+  <Layout>
+   <!-- your components go here  -->
+   <div class="w-full h-[100vh] flex items-center justify-center">
+     <h1 class="text-white">Astro Tailwind Started</h1>
+    </div>
+  </Layout>
+</Base>
