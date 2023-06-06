@@ -1,20 +1,9 @@
-# Chitty Chitty Bang Bang Tour 2023
-
-<div  align="center">
-
-<a  href="https://chittyontour.com/">
-
-<img  alt="Chitty on Tour"  src="https://chittyontour.com/Share_1200X600.png"  width="500" />
-
-</a>
-
-</div>
+# Dewynters Astro Tailwind Starter
 
 ## 🚀 Tech Stack
 
 - ✅ Astro
 - ✅ Tailwind
-
 - ✅ Cloudflare Pages
 
 ## ☕️ Environment Variables
